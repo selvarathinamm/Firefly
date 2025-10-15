@@ -1,16 +1,41 @@
-# React + Vite
+# 🔥 Firefly Frontend (VVCOE Community Connect)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Firefly** is the official community web platform for **V V College of Engineering (VVCOE)**.  
+This frontend, built with **React + Vite**, provides a modern and responsive interface that allows **students, alumni, faculty, and staff** to connect, interact, and collaborate in one place.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
+🔗 **[Firefly – VVCOE Community Platform]
+demo url- https://vvfirefly.netlify.app/login
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔐 **Role-based Authentication** — Login and register as Student, Faculty, Alumni, HOD, Principal, or Staff.  
+- 🖥️ **Responsive Design** — Smooth user experience across mobile and desktop.  
+- 🎨 **VVCOE-Themed UI** — Matches the college’s color palette and style.  
+- ⚡ **Fast and Lightweight** — Powered by Vite for blazing-fast builds.  
+- 🧭 **Routing** — React Router for page navigation.  
+- 🧰 **API Ready** — Built with Axios to connect seamlessly with backend APIs.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Tech Stack
+
+| Layer | Technology |
+|-------|-------------|
+| Frontend Framework | React + Vite |
+| Routing | React Router v7 |
+| HTTP Client | Axios |
+| Styling | CSS (Custom theme) |
+| Deployment | Netlify |
+
+---
+
+## 🏗️ Getting Started
+
+### 1️⃣ Clone this repository
+```bash
+git clone https://github.com/<your-username>/firefly-frontend.git
+cd firefly-frontend
