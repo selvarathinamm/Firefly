@@ -1,20 +1,19 @@
 // src/api/apiService.js
 import axios from "axios";
 
-const BASE_URL = "https://your-backend-url.onrender.com"; // same as Flutter
+const BASE_URL = "https://your-backend-url.onrender.com";
 
 export const ApiService = {
-  // LOGIN
-  login: async (email, password, role) => {
+  login: async (email, password) => {
     try {
       const formData = new URLSearchParams();
       formData.append("username", email);
       formData.append("password", password);
-      formData.append("scope", role);
 
       const response = await axios.post(`${BASE_URL}/token`, formData, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       });
+
       return response.data;
     } catch (error) {
       console.error("Login error:", error.response?.data || error.message);
@@ -22,14 +21,14 @@ export const ApiService = {
     }
   },
 
-  // REGISTER
-  register: async (name, email, password, role) => {
+  register: async (name, email, password) => {
     try {
       const response = await axios.post(
         `${BASE_URL}/register`,
-        { name, email, password, role },
+        { name, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
+
       return response.status === 200;
     } catch (error) {
       console.error("Register error:", error.response?.data || error.message);

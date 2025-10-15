@@ -1,28 +1,23 @@
-// src/pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ApiService } from "../api/apiService";
 import "../App.css";
 import vvcoeLogo from "../assets/vvcoe_logo.jpg";
 
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const roles = ["Student", "Faculty", "Alumni", "HOD", "Principal", "Staff"];
-
   const handleLogin = async () => {
-    if (!email || !password || !role) {
+    if (!email || !password) {
       alert("Please fill all fields");
       return;
     }
 
     setLoading(true);
-    const data = await ApiService.login(email, password, role);
+    const data = await ApiService.login(email, password);
     setLoading(false);
 
     if (data && data.access_token) {
@@ -30,7 +25,7 @@ export default function Login() {
       alert("Login successful!");
       navigate("/dashboard");
     } else {
-      alert("Invalid credentials or role");
+      alert("Invalid credentials");
     }
   };
 
@@ -47,6 +42,7 @@ export default function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -54,16 +50,6 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <select
-          className="auth-input"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        >
-          <option value="">Select Role</option>
-          {roles.map((r) => (
-            <option key={r}>{r}</option>
-          ))}
-        </select>
 
         <button
           className="auth-button"

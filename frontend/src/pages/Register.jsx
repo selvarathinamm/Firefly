@@ -1,4 +1,3 @@
-// src/pages/Register.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ApiService } from "../api/apiService";
@@ -9,20 +8,17 @@ export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const roles = ["Student", "Faculty", "Alumni", "HOD", "Principal", "Staff"];
-
   const handleRegister = async () => {
-    if (!name || !email || !password || !role) {
+    if (!name || !email || !password) {
       alert("Please fill all fields");
       return;
     }
 
     setLoading(true);
-    const success = await ApiService.register(name, email, password, role);
+    const success = await ApiService.register(name, email, password);
     setLoading(false);
 
     if (success) {
@@ -46,6 +42,7 @@ export default function Register() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+
         <input
           type="email"
           placeholder="Email"
@@ -53,6 +50,7 @@ export default function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -60,16 +58,6 @@ export default function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <select
-          className="auth-input"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        >
-          <option value="">Select Role</option>
-          {roles.map((r) => (
-            <option key={r}>{r}</option>
-          ))}
-        </select>
 
         <button
           className="auth-button"
