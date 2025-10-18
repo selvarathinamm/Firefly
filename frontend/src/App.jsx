@@ -1,10 +1,8 @@
+import React from "react";
+import Login from "./pages/Login";
+
 function App() {
-  return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Hello, React!</h1>
-      <p>Welcome to basic React app </p>
-    </div>
-  );
+  return <Login />;
 }
 
 export default App;
