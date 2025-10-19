@@ -6,8 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
+    @GetMapping("/")
+    public String home() {
+        return "VVFirefly Backend is running successfully on Render!";
+    }
+
     @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello from VVFirefly Backend!";
+    public String hello() {
+        return "Hello from VVFirefly Backend 🚀";
     }
 }
