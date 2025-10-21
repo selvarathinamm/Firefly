@@ -6,10 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173") // allow frontend access
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://vvfirefly.netlify.app"
+})
 public class AuthController {
 
-    // 🟢 Register always succeeds
     @PostMapping("/register")
     public ResponseEntity<Map<String, String>> register(@RequestBody Map<String, String> body) {
         Map<String, String> response = new HashMap<>();
@@ -17,7 +19,6 @@ public class AuthController {
         return ResponseEntity.ok(response);
     }
 
-    // 🟢 Login only succeeds for fixed credentials
     @PostMapping("/token")
     public ResponseEntity<Map<String, String>> login(@RequestParam String username, @RequestParam String password) {
         Map<String, String> response = new HashMap<>();
@@ -32,13 +33,11 @@ public class AuthController {
         }
     }
 
-    // 🟢 Hello endpoint for after login success
     @GetMapping("/hello")
     public String hello() {
-        return " Welcome to VVFirefly Dashboard (mock login success)";
+        return "Welcome to VVFirefly Dashboard (mock login success)";
     }
 
-    // Optional root message
     @GetMapping("/")
     public String home() {
         return "✅ VVFirefly mock backend running successfully!";
