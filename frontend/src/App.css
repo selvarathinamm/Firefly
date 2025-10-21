@@ -11,37 +11,64 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--background);
   color: var(--text-dark);
-}
-
-.auth-container {
-  background-color: var(--background);
-  height: 100vh;
+  user-select: none; /* prevent caret outside inputs */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Center container */
+.auth-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 20px; /* ensures spacing on small screens */
+  box-sizing: border-box;
+}
+
+/* Card box */
 .auth-card {
+  position: relative;
+  z-index: 1;
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 360px;
   padding: 24px;
   text-align: center;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Logo image */
 .logo {
   height: 80px;
   margin-bottom: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  position: relative;
 }
 
+/* Title */
 .auth-title {
   color: var(--primary);
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 24px;
+  user-select: none;
 }
 
+/* Input fields */
 .auth-input {
   width: 100%;
   padding: 10px;
@@ -50,12 +77,17 @@ body {
   border-radius: 8px;
   font-size: 14px;
   color: var(--text-dark);
+  background-color: white;
+  position: relative;
+  z-index: 2;
+  user-select: text;
 }
 
 .auth-input:focus {
   outline: 2px solid var(--primary);
 }
 
+/* Buttons */
 .auth-button {
   width: 100%;
   background-color: var(--primary);
@@ -65,19 +97,46 @@ body {
   padding: 12px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.3s ease;
+  position: relative;
+  z-index: 2;
+  user-select: none;
+}
+
+.auth-button:hover:not(:disabled) {
+  background-color: #900f13;
 }
 
 .auth-button:disabled {
   opacity: 0.7;
+  cursor: not-allowed;
 }
 
+/* Link section */
 .auth-link {
   margin-top: 16px;
   color: var(--primary);
   font-size: 14px;
+  position: relative;
+  z-index: 2;
+  user-select: none;
 }
 
 .auth-link span {
   font-weight: bold;
   cursor: pointer;
+  text-decoration: underline;
+  user-select: none;
+}
+
+/* 📱 Responsive design (mobile fix) */
+@media (max-width: 420px) {
+  .auth-card {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
 }
