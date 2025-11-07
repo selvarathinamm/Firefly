@@ -33,7 +33,8 @@ export default function Login() {
 
       if (data?.access_token) {
         localStorage.setItem("token", data.access_token);
-        navigate("/welcome");
+        alert("Login successful!");
+        navigate("/dashboard");
       } else {
         alert("Invalid login credentials");
       }
@@ -108,6 +109,12 @@ export default function Login() {
         >
           {loading ? "Authenticating..." : "Login"}
         </Button>
+
+        {/* ===== Register Link ===== */}
+        <Typography variant="body2" className="auth-link">
+          Don’t have an account?{" "}
+          <span onClick={() => navigate("/register")}>Register</span>
+        </Typography>
       </Paper>
     </Box>
   );

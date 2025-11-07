@@ -1,7 +1,9 @@
 :root {
   --primary: #b11116;
+  --accent: #ffd700;
   --background: linear-gradient(160deg, #faf3f3 0%, #fff5f5 100%);
   --text-dark: #1a1a1a;
+  --text-light: #666666;
   --hint: #999;
   --border: #ddd;
 }
@@ -10,7 +12,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", "Inter", sans-serif;
@@ -30,7 +33,7 @@ body {
   user-select: none;
 }
 
-/*Container*/
+/* Container */
 .auth-container {
   display: flex;
   justify-content: center;
@@ -41,7 +44,7 @@ body {
   background: var(--background);
 }
 
-/*Card*/
+/* Card */
 .auth-card {
   background-color: #ffffff;
   border-radius: 20px;
@@ -53,13 +56,15 @@ body {
   align-items: center;
   text-align: center;
   transition: transform 0.25s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .auth-card:hover {
   transform: translateY(-3px);
 }
 
-/*Logo*/
+/* Logo */
 .logo {
   width: 100px;
   height: 100px;
@@ -67,24 +72,28 @@ body {
   margin-bottom: 20px;
   pointer-events: none;
   user-select: none;
+  z-index: 0;
+  position: relative;
 }
 
-/*title*/
+/* Title */
 .auth-title {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--primary);
   margin-bottom: 30px;
   letter-spacing: 0.5px;
+  user-select: none;
 }
 
-/*Input bar*/
+/* Input wrapper */
 .input-wrapper {
   position: relative;
   width: 100%;
   margin-bottom: 20px;
 }
 
+/* Input bar */
 .auth-input {
   width: 100%;
   padding: 14px 48px 14px 14px;
@@ -96,7 +105,7 @@ body {
   color: var(--text-dark);
   transition: all 0.3s ease;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
-  user-select: text; /* only inputs allow selection */
+  user-select: text;
   cursor: text;
 }
 
@@ -105,7 +114,7 @@ body {
   box-shadow: 0 0 0 3px rgba(177, 17, 22, 0.1);
 }
 
-/*EyeIcon in pass*/
+/* Eye icon in password field */
 .eye-icon {
   position: absolute;
   right: 12px;
@@ -126,7 +135,7 @@ body {
   color: var(--primary);
 }
 
-/*Button*/
+/* Button */
 .auth-button {
   width: 100%;
   background-color: var(--primary);
@@ -139,6 +148,9 @@ body {
   cursor: pointer;
   box-shadow: 0px 4px 12px rgba(177, 17, 22, 0.25);
   transition: all 0.25s ease;
+  position: relative;
+  z-index: 2;
+  user-select: none;
 }
 
 .auth-button:hover:not(:disabled) {
@@ -151,7 +163,24 @@ body {
   cursor: not-allowed;
 }
 
-/*Responsive*/
+/* Link section */
+.auth-link {
+  margin-top: 16px;
+  color: var(--primary);
+  font-size: 14px;
+  position: relative;
+  z-index: 2;
+  user-select: none;
+}
+
+.auth-link span {
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  user-select: none;
+}
+
+/* Responsive */
 @media (max-width: 420px) {
   .auth-card {
     width: 90%;
