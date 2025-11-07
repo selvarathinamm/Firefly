@@ -11,8 +11,8 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import vvcoeLogo from "../assets/vvcoe_logo.jpg";
 import { useNavigate } from "react-router-dom";
-import { login } from "../api/apiService"; // ✅ Centralized API service
-import "../styles/Login.css"; // ✅ External CSS file for styling
+import { login } from "../api/apiService";
+import "../styles/Login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -33,8 +33,7 @@ export default function Login() {
 
       if (data?.access_token) {
         localStorage.setItem("token", data.access_token);
-        alert("Login successful!");
-        navigate("/dashboard");
+        navigate("/welcome");
       } else {
         alert("Invalid login credentials");
       }
@@ -109,12 +108,6 @@ export default function Login() {
         >
           {loading ? "Authenticating..." : "Login"}
         </Button>
-
-        {/* ===== Register Link ===== */}
-        <Typography variant="body2" className="auth-link">
-          Don’t have an account?{" "}
-          <span onClick={() => navigate("/register")}>Register</span>
-        </Typography>
       </Paper>
     </Box>
   );
