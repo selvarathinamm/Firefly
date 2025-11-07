@@ -1,9 +1,15 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Welcome";
+
 function App() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Hello, React!</h1>
-      <p>Welcome to basic React app </p>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/welcome" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
